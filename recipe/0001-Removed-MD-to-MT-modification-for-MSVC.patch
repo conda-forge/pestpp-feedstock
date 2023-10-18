@@ -1,0 +1,82 @@
+From 7c7b81eee9abff2c76a5d746af2c4d0ce19404c9 Mon Sep 17 00:00:00 2001
+From: "Charlton, Scott R." <charlton@usgs.gov>
+Date: Tue, 17 Oct 2023 18:32:07 -0600
+Subject: [PATCH] Removed /MD to /MT modification for MSVC
+
+---
+ CMakeLists.txt | 52 +++++++++++++++++++++++++-------------------------
+ 1 file changed, 26 insertions(+), 26 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3b806afa..a8230261 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,17 +13,17 @@ endif()
+ message(STATUS
+   "Configuring CMake ${CMAKE_VERSION} to build PESTPP ${PESTPP_VERSION}")
+ 
+-# This logic needs to be considered before project()
+-set(_change_MSVC_flags FALSE)
+-if(WIN32)
+-  if(CMAKE_VERSION VERSION_LESS 3.15.0)
+-    set(_change_MSVC_flags TRUE)
+-  else()
+-    # Set MSVC runtime to MultiThreaded (/MT)
+-    cmake_policy(SET CMP0091 NEW)
+-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+-  endif()
+-endif()
++# # This logic needs to be considered before project()
++# set(_change_MSVC_flags FALSE)
++# if(WIN32)
++#   if(CMAKE_VERSION VERSION_LESS 3.15.0)
++#     set(_change_MSVC_flags TRUE)
++#   else()
++#     # Set MSVC runtime to MultiThreaded (/MT)
++#     cmake_policy(SET CMP0091 NEW)
++#     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
++#   endif()
++# endif()
+ 
+ project(PESTPP
+   VERSION ${PESTPP_VERSION}
+@@ -34,21 +34,21 @@ if("${PESTPP_SOURCE_DIR}" STREQUAL "${PESTPP_BINARY_DIR}")
+    message(SEND_ERROR "In-source builds are not allowed")
+ endif()
+ 
+-if(_change_MSVC_flags)
+-  # Modify compile flags to change MSVC runtime from /MD to /MT
+-  set(_re_match "([\\/\\-]M)D")
+-  set(_re_replace "\\1T")
+-  string(REGEX REPLACE ${_re_match} ${_re_replace}
+-    CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+-  string(REGEX REPLACE ${_re_match} ${_re_replace}
+-    CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+-  string(REGEX REPLACE ${_re_match} ${_re_replace}
+-    CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+-  string(REGEX REPLACE ${_re_match} ${_re_replace}
+-    CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL}")
+-  string(REGEX REPLACE ${_re_match} ${_re_replace}
+-    CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+-endif()
++# if(_change_MSVC_flags)
++#   # Modify compile flags to change MSVC runtime from /MD to /MT
++#   set(_re_match "([\\/\\-]M)D")
++#   set(_re_replace "\\1T")
++#   string(REGEX REPLACE ${_re_match} ${_re_replace}
++#     CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
++#   string(REGEX REPLACE ${_re_match} ${_re_replace}
++#     CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
++#   string(REGEX REPLACE ${_re_match} ${_re_replace}
++#     CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
++#   string(REGEX REPLACE ${_re_match} ${_re_replace}
++#     CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL}")
++#   string(REGEX REPLACE ${_re_match} ${_re_replace}
++#     CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
++# endif()
+ 
+ # Fortran is not required (anymore), but can be enabled using either:
+ #  1. ENABLE_Fortran=ON and use whatever default compiler is available
+-- 
+2.42.0.windows.2
+
