@@ -13,7 +13,7 @@ source:
     - 0001-Removed-MD-to-MT-modification-for-MSVC.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
