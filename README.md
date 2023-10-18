@@ -183,5 +183,7 @@ Feedstock Maintainers
 =====================
 
 * [@jdhughes-usgs](https://github.com/jdhughes-usgs/)
+* [@jtwhite79](https://github.com/jtwhite79/)
+* [@mwtoews](https://github.com/mwtoews/)
 * [@scharlton2](https://github.com/scharlton2/)
 
