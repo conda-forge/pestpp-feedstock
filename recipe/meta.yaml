@@ -1,6 +1,6 @@
 {% set name = "pestpp" %}
-{% set version = "5.2.11" %}
-{% set sha256 = "edfc2d1944306fdb21b1d255af04458866c17870f21ea2b71dedbd3b6baa2b2f" %}
+{% set version = "5.2.12" %}
+{% set sha256 = "b7fa7a76c626ba870fbccac2f3c18170aa4b10f18c9b7861feb6b48dc74eebd4" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
     - 0001-Removed-MD-to-MT-modification-for-MSVC.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
