@@ -1,6 +1,6 @@
 {% set name = "pestpp" %}
-{% set version = "5.2.17" %}
-{% set sha256 = "548d6a4aab5ef07ffc9ce73b59577fd90730f8f5f07570c2e87811eb382d6eee" %}
+{% set version = "5.2.18" %}
+{% set sha256 = "e24e8fdbdf249b822b1bbf309d13f91205f6c4123d75e853af2a82ea8f5ecee3" %}
 
 package:
   name: {{ name|lower }}
@@ -65,6 +65,6 @@ about:
 extra:
   recipe-maintainers:
     - scharlton2
-    - jdhughes-usgs
+    - jdhughes-dev
     - jtwhite79
     - mwtoews
