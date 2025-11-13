@@ -9,8 +9,6 @@ package:
 source:
   url: https://github.com/usgs/pestpp/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-Removed-MD-to-MT-modification-for-MSVC.patch
 
 build:
   number: 0
