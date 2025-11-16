@@ -1,6 +1,6 @@
 {% set name = "pestpp" %}
-{% set version = "5.2.23" %}
-{% set sha256 = "4b4319e17c35ef2bfade522808b104893771127817d937ed525f059d7c0f5050" %}
+{% set version = "5.2.24" %}
+{% set sha256 = "5fddd725981d9bf985a954ed1111fe7c1787355268dc74bbffc816e9fce0450c" %}
 
 package:
   name: {{ name|lower }}
@@ -19,7 +19,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - cmake >=3.9
+    - cmake
     - make
     - ninja
 
