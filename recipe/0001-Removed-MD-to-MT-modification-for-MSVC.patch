@@ -1,0 +1,25 @@
+From 48d0d4cf96bc322ce60a43c008773bb8325e7ce4 Mon Sep 17 00:00:00 2001
+From: Mike Taves <mwtoews@gmail.com>
+Date: Mon, 17 Nov 2025 10:11:17 +1300
+Subject: [PATCH] Disable MultiThreaded (/MT) for MSVC
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d437c4a9..a6571e64 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,7 +17,7 @@ endif()
+ message(STATUS
+   "Configuring CMake ${CMAKE_VERSION} to build PESTPP ${PESTPP_VERSION}")
+ 
+-if(WIN32)
++if(FALSE)
+   # Set MSVC runtime to MultiThreaded (/MT)
+   cmake_policy(SET CMP0091 NEW)
+   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+-- 
+2.34.1
+
