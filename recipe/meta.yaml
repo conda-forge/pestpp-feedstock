@@ -1,6 +1,6 @@
 {% set name = "pestpp" %}
-{% set version = "5.2.25" %}
-{% set sha256 = "27a53f49d96774be0d2017e826591b1db3293d1e332d1dbaea10e53161116bd7" %}
+{% set version = "5.2.26" %}
+{% set sha256 = "b3f6a8c49a00ef0a932a37a507cbddc5e4c3b697ebc1046b12f4a5184c298f06" %}
 
 package:
   name: {{ name|lower }}
